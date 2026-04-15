@@ -408,6 +408,13 @@ export default function TopicPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
+  useEffect(() => {
+    if (topic) {
+      document.title = `${topic.title} — The Shelf`;
+    }
+    return () => { document.title = "The Shelf"; };
+  }, [topic]);
+
   if (!topic) {
     return (
       <div className="topic-not-found">
@@ -418,16 +425,6 @@ export default function TopicPage() {
   }
 
   const Decorations = decorationMap[topic.slug];
-
-  const subtitles: Record<string, React.ReactNode> = {
-    korean: <span className="topic-subtitle topic-subtitle-hangul">한국어</span>,
-    coding: <span className="topic-subtitle topic-subtitle-code">{"< "}{topic.title}{" />"}</span>,
-    "toki-pona": <span className="topic-subtitle topic-subtitle-tp">toki pona li pona</span>,
-    spanish: <span className="topic-subtitle topic-subtitle-spanish">Vamos a aprender</span>,
-    soroban: <span className="topic-subtitle topic-subtitle-soroban">そろばん</span>,
-  };
-
-  const showCodeTitle = topic.slug === "coding";
 
   return (
     <div
@@ -454,9 +451,7 @@ export default function TopicPage() {
       <div className="topic-content">
         <div className="topic-hero">
           <div className="hero-text">
-            {!showCodeTitle && <h1 className="topic-title">{topic.title}</h1>}
-            {showCodeTitle && <h1 className="topic-title">{"< Coding />"}</h1>}
-            {subtitles[topic.slug]}
+            <h1 className="topic-title">{topic.title}</h1>
             <p className="topic-description">{topic.description}</p>
           </div>
 
