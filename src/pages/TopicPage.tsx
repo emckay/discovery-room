@@ -292,6 +292,12 @@ function SorobanDecorations() {
 function StoryWritingDecorations() {
   return (
     <div className="decorations story-decorations">
+      {/* Large ghosted "WRITING" watermark behind content */}
+      <div className="writing-watermark">WRITING</div>
+
+      {/* "Once upon a midnight..." flowing text */}
+      <div className="story-opening">Once upon a midnight dreaming...</div>
+
       {/* Floating text lines / paragraphs */}
       <div className="story-lines">
         {Array.from({ length: 8 }).map((_, i) => (
@@ -335,36 +341,54 @@ function StoryWritingDecorations() {
 function TypingDecorations() {
   return (
     <div className="decorations typing-decorations">
-      {/* Floating key caps */}
+      {/* Scanline overlay */}
+      <div className="typing-scanlines" />
+
+      {/* WPM counter */}
+      <div className="wpm-counter">
+        <span className="wpm-number">127</span>
+        <span className="wpm-label">WPM</span>
+      </div>
+
+      {/* Floating 3D keycaps */}
       {["A", "S", "D", "F", "J", "K", "L", ";"].map((key, i) => (
         <div
           key={key}
           className="floating-key"
           style={{
-            left: `${8 + i * 11}%`,
-            top: `${15 + (i % 3) * 25}%`,
+            left: `${5 + i * 11.5}%`,
+            top: `${12 + (i % 3) * 28}%`,
             animationDelay: `${i * 0.4}s`,
           }}
         >
           {key}
         </div>
       ))}
-      {/* Cursor blink lines */}
-      <div className="typing-cursor cursor-1" />
-      <div className="typing-cursor cursor-2" />
-      {/* Speed lines */}
+
+      {/* Horizontal speed lines */}
       <div className="speed-lines">
-        {Array.from({ length: 6 }).map((_, i) => (
+        {Array.from({ length: 10 }).map((_, i) => (
           <div
             key={i}
             className="speed-line"
             style={{
-              top: `${20 + i * 13}%`,
-              width: `${80 + Math.random() * 150}px`,
-              animationDelay: `${i * 0.3}s`,
+              top: `${8 + i * 9}%`,
+              width: `${60 + Math.random() * 200}px`,
+              animationDelay: `${i * 0.2}s`,
+              animationDuration: `${1.5 + Math.random() * 2}s`,
             }}
           />
         ))}
+      </div>
+
+      {/* Blinking cursors */}
+      <div className="typing-cursor cursor-1" />
+      <div className="typing-cursor cursor-2" />
+      <div className="typing-cursor cursor-3" />
+
+      {/* Terminal text ghost */}
+      <div className="terminal-ghost">
+        <span>$ the quick brown fox jumps</span>
       </div>
     </div>
   );

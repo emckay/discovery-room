@@ -115,9 +115,9 @@ export const topics: Topic[] = [
     tagline: "Speed up your fingers",
     description:
       "Want to write as fast as you think? Touch typing gives your brain a direct connection to the screen.",
-    accentColor: "#059669",
-    bgGradient: "linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%)",
-    textColor: "#ecfdf5",
+    accentColor: "#10B981",
+    bgGradient: "linear-gradient(135deg, #0a0f0d 0%, #0d1a14 50%, #071210 100%)",
+    textColor: "#d1fae5",
     videoUrl: "",
   },
 ];

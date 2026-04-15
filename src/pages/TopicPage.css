@@ -71,25 +71,6 @@
   line-height: 0.95;
 }
 
-.topic-subtitle {
-  display: block;
-  margin-bottom: 20px;
-}
-
-.topic-subtitle-hangul {
-  font-size: 2.2rem;
-  color: var(--topic-text);
-  opacity: 0.5;
-  font-weight: 400;
-}
-
-.topic-subtitle-code {
-  font-family: var(--font-mono);
-  font-size: 1.5rem;
-  color: #10B981;
-  opacity: 0.6;
-  display: none; /* title already has brackets */
-}
 
 .topic-description {
   font-family: var(--font-body);
@@ -611,9 +592,6 @@
   line-height: 1.9;
 }
 
-.topic-coding .topic-subtitle-code {
-  font-family: var(--font-mono);
-}
 
 /* ========================
    PIANO DECORATIONS
@@ -715,13 +693,6 @@
   color: #78350f;
 }
 
-.topic-subtitle-tp {
-  font-family: var(--font-hand);
-  font-size: 1.8rem;
-  color: #92400e;
-  opacity: 0.5;
-}
-
 .topic-toki-pona .back-button {
   color: #78350f;
   background: rgba(251, 191, 36, 0.12);
@@ -786,15 +757,6 @@
   color: #a03020;
 }
 
-.topic-subtitle-spanish {
-  display: block;
-  font-family: var(--font-hand);
-  font-size: 2rem;
-  color: var(--topic-text);
-  opacity: 0.5;
-  margin-bottom: 16px;
-}
-
 .topic-spanish .back-button {
   color: #a03020;
   background: rgba(160, 48, 32, 0.08);
@@ -838,15 +800,6 @@
   text-transform: uppercase;
   font-size: 4.5rem;
   color: #6b3a00;
-}
-
-.topic-subtitle-soroban {
-  display: block;
-  font-size: 2rem;
-  color: #92400e;
-  opacity: 0.4;
-  margin-bottom: 16px;
-  letter-spacing: 6px;
 }
 
 .topic-soroban .back-button {
@@ -900,9 +853,35 @@
   transform: rotate(15deg);
 }
 
+.writing-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: 14rem;
+  font-weight: 700;
+  color: rgba(237, 233, 254, 0.03);
+  letter-spacing: 20px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.story-opening {
+  position: absolute;
+  top: 6%;
+  left: 5%;
+  font-family: var(--font-hand);
+  font-size: 1.8rem;
+  color: rgba(237, 233, 254, 0.06);
+  white-space: nowrap;
+  user-select: none;
+}
+
 .topic-story-writing .topic-title {
   font-family: var(--font-hand);
-  font-size: 7rem;
+  font-size: 6rem;
   font-weight: 700;
   letter-spacing: 0;
   font-style: normal;
@@ -916,33 +895,81 @@
 /* ========================
    TYPING DECORATIONS
    ======================== */
+.typing-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(16, 185, 129, 0.015) 2px,
+    rgba(16, 185, 129, 0.015) 4px
+  );
+  pointer-events: none;
+}
+
+.wpm-counter {
+  position: absolute;
+  right: 8%;
+  bottom: 20%;
+  text-align: right;
+  user-select: none;
+}
+
+.wpm-number {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 8rem;
+  font-weight: 700;
+  color: rgba(16, 185, 129, 0.06);
+  line-height: 1;
+  letter-spacing: -4px;
+}
+
+.wpm-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgba(16, 185, 129, 0.08);
+  letter-spacing: 8px;
+}
+
 .floating-key {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-  border: 1px solid rgba(236, 253, 245, 0.08);
-  background: rgba(236, 253, 245, 0.03);
-  color: rgba(236, 253, 245, 0.1);
-  font-family: monospace;
-  font-size: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid rgba(16, 185, 129, 0.12);
+  background: rgba(16, 185, 129, 0.04);
+  color: rgba(16, 185, 129, 0.2);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: gentle-float 6s ease-in-out infinite;
+  animation: key-float 5s ease-in-out infinite;
+  box-shadow: 0 2px 0 rgba(16, 185, 129, 0.08);
+}
+
+@keyframes key-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 .typing-cursor {
   position: absolute;
-  width: 2px;
-  height: 24px;
-  background: rgba(16, 185, 129, 0.3);
-  animation: cursor-blink 1s step-end infinite;
+  width: 3px;
+  height: 28px;
+  background: rgba(16, 185, 129, 0.5);
+  border-radius: 1px;
+  animation: cursor-blink 0.8s step-end infinite;
 }
 
-.cursor-1 { left: 20%; top: 65%; }
-.cursor-2 { right: 15%; top: 45%; animation-delay: 0.5s; }
+.cursor-1 { left: 18%; top: 65%; }
+.cursor-2 { right: 12%; top: 40%; animation-delay: 0.4s; }
+.cursor-3 { left: 45%; bottom: 15%; animation-delay: 0.6s; }
 
 @keyframes cursor-blink {
   0%, 50% { opacity: 1; }
@@ -956,29 +983,55 @@
 
 .speed-line {
   position: absolute;
-  right: 5%;
+  left: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.08), transparent);
-  animation: speed-dash 3s ease-in-out infinite;
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.03), transparent);
+  animation: speed-dash 2s ease-out infinite;
 }
 
 @keyframes speed-dash {
-  0% { transform: translateX(50px); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateX(-50px); opacity: 0; }
+  0% { transform: translateX(-100px); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateX(calc(100vw + 100px)); opacity: 0; }
+}
+
+.terminal-ghost {
+  position: absolute;
+  bottom: 8%;
+  left: 5%;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: rgba(16, 185, 129, 0.06);
+  white-space: nowrap;
+  user-select: none;
 }
 
 .topic-typing .topic-title {
   font-family: var(--font-mono);
   font-size: 4.5rem;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
+  text-shadow: 0 0 40px rgba(16, 185, 129, 0.3), 0 0 80px rgba(16, 185, 129, 0.1);
 }
 
 .topic-typing .topic-description {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.9;
+}
+
+.topic-typing .back-button {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.topic-typing .video-container {
+  border-color: rgba(16, 185, 129, 0.12);
+  background: rgba(16, 185, 129, 0.03);
+}
+
+.topic-typing .video-placeholder {
+  color: #10b981;
 }
 
 /* ========================
