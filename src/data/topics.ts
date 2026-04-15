@@ -54,7 +54,7 @@ export const topics: Topic[] = [
     accentColor: "#3B82F6",
     bgGradient: "linear-gradient(135deg, #1E1B4B 0%, #1e3a5f 50%, #0f172a 100%)",
     textColor: "#e0e7ff",
-    videoUrl: "",
+    videoUrl: `${BASE}videos/coding.mp4`,
   },
   {
     slug: "piano",
@@ -65,7 +65,7 @@ export const topics: Topic[] = [
     accentColor: "#1a1a2e",
     bgGradient: "linear-gradient(135deg, #0f1118 0%, #1a1a2e 40%, #0f3460 100%)",
     textColor: "#e8e8f0",
-    videoUrl: "",
+    videoUrl: `${BASE}videos/piano.mp4`,
   },
   {
     slug: "toki-pona",
@@ -98,7 +98,7 @@ export const topics: Topic[] = [
     accentColor: "#c9940a",
     bgGradient: "linear-gradient(135deg, #1a1206 0%, #2a1f0e 40%, #1a140a 100%)",
     textColor: "#f5e6c8",
-    videoUrl: "",
+    videoUrl: `${BASE}videos/soroban.mp4`,
   },
   {
     slug: "story-writing",
@@ -109,7 +109,7 @@ export const topics: Topic[] = [
     accentColor: "#7C3AED",
     bgGradient: "linear-gradient(135deg, #7C3AED 0%, #6d28d9 50%, #4c1d95 100%)",
     textColor: "#ede9fe",
-    videoUrl: "",
+    videoUrl: `${BASE}videos/story-writing.mp4`,
   },
   {
     slug: "typing",
