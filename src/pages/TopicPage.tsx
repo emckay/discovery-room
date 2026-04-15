@@ -508,7 +508,6 @@ export default function TopicPage() {
                 <video
                   src={topic.videoUrl}
                   autoPlay
-                  muted
                   loop
                   playsInline
                 />
