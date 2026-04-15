@@ -505,11 +505,12 @@ export default function TopicPage() {
           <div className="hero-video">
             <div className="video-container">
               {topic.videoUrl ? (
-                <iframe
+                <video
                   src={topic.videoUrl}
-                  title={`${topic.title} video`}
-                  allow="autoplay; encrypted-media"
-                  allowFullScreen
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                 />
               ) : (
                 <div className="video-placeholder">

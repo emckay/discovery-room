@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL;
+
 export interface Topic {
   slug: string;
   title: string;
@@ -19,7 +21,7 @@ export const topics: Topic[] = [
     accentColor: "#2D5016",
     bgGradient: "linear-gradient(135deg, #2D5016 0%, #1a3a0a 50%, #121410 100%)",
     textColor: "#e3e3dc",
-    videoUrl: "",
+    videoUrl: `${BASE}videos/chess.mp4`,
   },
   {
     slug: "ukulele",
@@ -41,7 +43,7 @@ export const topics: Topic[] = [
     accentColor: "#E8A0BF",
     bgGradient: "linear-gradient(135deg, #fdf0f5 0%, #f5e4ec 50%, #ede0e8 100%)",
     textColor: "#5c2040",
-    videoUrl: "",
+    videoUrl: `${BASE}videos/korean.mp4`,
   },
   {
     slug: "coding",
@@ -74,7 +76,7 @@ export const topics: Topic[] = [
     accentColor: "#FBBF24",
     bgGradient: "linear-gradient(135deg, #fefce8 0%, #fef9c3 50%, #fef3c7 100%)",
     textColor: "#451a03",
-    videoUrl: "",
+    videoUrl: `${BASE}videos/toki-pona.mp4`,
   },
   {
     slug: "spanish",
@@ -118,6 +120,6 @@ export const topics: Topic[] = [
     accentColor: "#10B981",
     bgGradient: "linear-gradient(135deg, #0a0f0d 0%, #0d1a14 50%, #071210 100%)",
     textColor: "#d1fae5",
-    videoUrl: "",
+    videoUrl: `${BASE}videos/typing.mp4`,
   },
 ];

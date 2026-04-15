@@ -51,7 +51,7 @@
 /* Side-by-side hero */
 .topic-hero {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1.4fr 1fr;
   gap: 48px;
   align-items: center;
   min-height: calc(100vh - 160px);
@@ -91,7 +91,7 @@
 .video-container {
   position: relative;
   width: 100%;
-  padding-top: 62%;
+  padding-top: 177.78%; /* 9:16 */
   border-radius: 16px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.2);
@@ -100,12 +100,14 @@
   box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.3);
 }
 
-.video-container iframe {
+.video-container iframe,
+.video-container video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: none;
+  object-fit: cover;
 }
 
 .video-placeholder {
