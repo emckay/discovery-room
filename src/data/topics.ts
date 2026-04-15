@@ -32,7 +32,7 @@ export const topics: Topic[] = [
     accentColor: "#FF6B35",
     bgGradient: "linear-gradient(135deg, #fdf6f0 0%, #f5ebe0 50%, #ede0d0 100%)",
     textColor: "#5c2d10",
-    videoUrl: "",
+    videoUrl: `${BASE}videos/ukulele.mp4`,
   },
   {
     slug: "korean",
@@ -87,7 +87,7 @@ export const topics: Topic[] = [
     accentColor: "#DC2626",
     bgGradient: "linear-gradient(135deg, #fdf2e9 0%, #f5dcc4 50%, #e8c9a4 100%)",
     textColor: "#6b2113",
-    videoUrl: "",
+    videoUrl: `${BASE}videos/spanish.mp4`,
   },
   {
     slug: "soroban",
