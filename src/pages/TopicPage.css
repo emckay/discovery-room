@@ -1,0 +1,788 @@
+.topic-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-bg {
+  position: fixed;
+  inset: 0;
+  background: var(--topic-bg);
+  z-index: 0;
+}
+
+/* Navigation */
+.topic-nav {
+  position: relative;
+  z-index: 10;
+  padding: 24px 32px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--topic-text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-4px);
+}
+
+/* Content */
+.topic-content {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 32px 80px;
+}
+
+.topic-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.topic-title {
+  font-size: 5rem;
+  font-weight: 800;
+  color: var(--topic-text);
+  margin-bottom: 8px;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.topic-subtitle-hangul {
+  display: block;
+  font-size: 2rem;
+  color: var(--topic-text);
+  opacity: 0.6;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.topic-subtitle-code {
+  display: block;
+  font-family: "Courier New", monospace;
+  font-size: 2rem;
+  color: #10B981;
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.topic-description {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--topic-text);
+  opacity: 0.85;
+  max-width: 650px;
+  margin: 16px auto 0;
+}
+
+/* Video Section */
+.video-section {
+  margin-top: 24px;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.4);
+}
+
+.video-container iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--topic-text);
+  opacity: 0.5;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.topic-not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Decorations shared */
+.decorations {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ========================
+   CHESS DECORATIONS
+   ======================== */
+.chess-board-pattern {
+  position: absolute;
+  top: 0;
+  right: -50px;
+  width: 500px;
+  height: 500px;
+  opacity: 0.5;
+  transform: rotate(15deg);
+}
+
+.floating-piece {
+  position: absolute;
+  animation: gentle-float 8s ease-in-out infinite;
+}
+
+.knight-piece {
+  width: 140px;
+  right: 5%;
+  top: 15%;
+  animation-delay: 0s;
+}
+
+.queen-piece {
+  width: 120px;
+  left: 3%;
+  top: 55%;
+  animation-delay: -3s;
+}
+
+.pawn-piece {
+  width: 60px;
+  right: 12%;
+  bottom: 15%;
+  animation-delay: -5s;
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-15px) rotate(2deg); }
+  75% { transform: translateY(10px) rotate(-2deg); }
+}
+
+.ornamental-corner {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-color: rgba(168, 211, 138, 0.15);
+  border-style: solid;
+}
+
+.ornamental-corner.top-left {
+  top: 60px;
+  left: 20px;
+  border-width: 3px 0 0 3px;
+}
+
+.ornamental-corner.top-right {
+  top: 60px;
+  right: 20px;
+  border-width: 3px 3px 0 0;
+}
+
+.ornamental-corner.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  border-width: 0 0 3px 3px;
+}
+
+.ornamental-corner.bottom-right {
+  bottom: 20px;
+  right: 20px;
+  border-width: 0 3px 3px 0;
+}
+
+/* Chess: use serif font for title */
+.topic-chess .topic-title {
+  font-family: var(--font-serif);
+  letter-spacing: 0;
+}
+
+/* ========================
+   UKULELE DECORATIONS
+   ======================== */
+.wave-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+}
+
+.wave-bg-2 {
+  height: 30%;
+  bottom: 0;
+}
+
+.music-note {
+  position: absolute;
+  color: rgba(255, 107, 53, 0.2);
+  animation: bounce-note 6s ease-in-out infinite;
+}
+
+.note-1 {
+  width: 50px;
+  left: 8%;
+  top: 20%;
+  animation-delay: 0s;
+}
+
+.note-2 {
+  width: 60px;
+  right: 6%;
+  top: 35%;
+  animation-delay: -2s;
+}
+
+.note-3 {
+  width: 40px;
+  left: 15%;
+  bottom: 25%;
+  animation-delay: -4s;
+}
+
+@keyframes bounce-note {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.sound-waves {
+  position: absolute;
+  right: 10%;
+  top: 60%;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  height: 60px;
+}
+
+.sound-waves span {
+  display: block;
+  width: 4px;
+  background: rgba(255, 107, 53, 0.15);
+  border-radius: 4px;
+  animation: sound-wave 1.5s ease-in-out infinite;
+}
+
+.sound-waves span:nth-child(1) { height: 20px; animation-delay: 0s; }
+.sound-waves span:nth-child(2) { height: 35px; animation-delay: 0.15s; }
+.sound-waves span:nth-child(3) { height: 50px; animation-delay: 0.3s; }
+.sound-waves span:nth-child(4) { height: 35px; animation-delay: 0.45s; }
+.sound-waves span:nth-child(5) { height: 20px; animation-delay: 0.6s; }
+
+@keyframes sound-wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.5); }
+}
+
+/* Ukulele: warm text shadow */
+.topic-ukulele .topic-title {
+  text-shadow: 2px 2px 0 rgba(255, 230, 109, 0.3);
+}
+
+/* ========================
+   KOREAN DECORATIONS
+   ======================== */
+.hangul-watermark {
+  position: absolute;
+  font-size: 20rem;
+  font-weight: 800;
+  color: rgba(200, 50, 80, 0.04);
+  line-height: 1;
+  user-select: none;
+}
+
+.hangul-watermark:first-child {
+  top: -5%;
+  right: -5%;
+}
+
+.hangul-2 {
+  bottom: 10%;
+  left: -8%;
+}
+
+.hangul-3 {
+  top: 35%;
+  right: 15%;
+  font-size: 12rem;
+}
+
+.petal {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(ellipse at 30% 30%, #E8A0BF, #f0c4d8);
+  border-radius: 50% 0 50% 0;
+  animation: petal-fall linear infinite;
+}
+
+@keyframes petal-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.3; }
+  90% { opacity: 0.15; }
+  100% { transform: translateY(80px) rotate(360deg); opacity: 0; }
+}
+
+.taegeuk {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  right: 8%;
+  bottom: 10%;
+  animation: slow-spin 40s linear infinite;
+}
+
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.korean-border-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(200, 50, 80, 0.15) 0px,
+    rgba(200, 50, 80, 0.15) 20px,
+    transparent 20px,
+    transparent 30px,
+    rgba(200, 160, 50, 0.1) 30px,
+    rgba(200, 160, 50, 0.1) 50px,
+    transparent 50px,
+    transparent 60px
+  );
+}
+
+/* ========================
+   CODING DECORATIONS
+   ======================== */
+.code-float {
+  position: absolute;
+  font-family: "Courier New", monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(59, 130, 246, 0.12);
+  animation: code-drift 10s ease-in-out infinite;
+  user-select: none;
+}
+
+.code-1 { top: 15%; left: 8%; animation-delay: 0s; font-size: 2rem; }
+.code-2 { top: 25%; right: 10%; animation-delay: -2s; font-size: 1.8rem; color: rgba(16, 185, 129, 0.12); }
+.code-3 { top: 60%; left: 5%; animation-delay: -4s; }
+.code-4 { bottom: 20%; right: 8%; animation-delay: -6s; color: rgba(16, 185, 129, 0.1); }
+.code-5 { top: 45%; right: 5%; animation-delay: -8s; font-size: 1.5rem; }
+.code-6 { bottom: 35%; left: 12%; animation-delay: -3s; color: rgba(16, 185, 129, 0.08); }
+
+@keyframes code-drift {
+  0%, 100% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(-12px); opacity: 1; }
+}
+
+.circuit-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: pulse-glow 6s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 200px;
+  height: 200px;
+  background: rgba(59, 130, 246, 0.08);
+  top: 10%;
+  right: 10%;
+}
+
+.orb-2 {
+  width: 150px;
+  height: 150px;
+  background: rgba(16, 185, 129, 0.06);
+  bottom: 20%;
+  left: 5%;
+  animation-delay: -3s;
+}
+
+.orb-3 {
+  width: 100px;
+  height: 100px;
+  background: rgba(139, 92, 246, 0.06);
+  top: 50%;
+  left: 40%;
+  animation-delay: -5s;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+.pixel-grid {
+  position: absolute;
+  inset: 0;
+}
+
+.pixel {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 1px;
+  animation: pixel-blink 3s ease-in-out infinite;
+}
+
+.pixel:nth-child(odd) {
+  background: rgba(16, 185, 129, 0.2);
+}
+
+@keyframes pixel-blink {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+}
+
+/* Coding: use monospace subtitle, neon title glow */
+.topic-coding .topic-title {
+  text-shadow: 0 0 40px rgba(59, 130, 246, 0.3), 0 0 80px rgba(59, 130, 246, 0.1);
+}
+
+/* ========================
+   PIANO DECORATIONS
+   ======================== */
+.piano-keys-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+}
+
+.treble-swirl {
+  position: absolute;
+  width: 150px;
+  right: 8%;
+  top: 15%;
+  animation: gentle-float 8s ease-in-out infinite;
+}
+
+.staff-lines {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 0;
+  bottom: 0;
+}
+
+.staff-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(232, 232, 240, 0.04);
+}
+
+.topic-piano .topic-title {
+  font-family: var(--font-serif);
+  letter-spacing: 2px;
+}
+
+/* ========================
+   TOKI PONA DECORATIONS
+   ======================== */
+.tp-sun-glow {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 60%);
+  border-radius: 50%;
+}
+
+.tp-glyph {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  animation: gentle-float 10s ease-in-out infinite;
+}
+
+.glyph-1 { left: 5%; top: 20%; animation-delay: 0s; }
+.glyph-2 { right: 8%; top: 40%; animation-delay: -3s; }
+.glyph-3 { left: 12%; bottom: 20%; animation-delay: -6s; }
+
+.tp-radiate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(
+    rgba(69, 26, 3, 0.02) 0deg 10deg,
+    transparent 10deg 20deg
+  );
+  border-radius: 50%;
+}
+
+.topic-subtitle-tp {
+  display: block;
+  font-size: 1.3rem;
+  color: var(--topic-text);
+  opacity: 0.5;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+/* ========================
+   SPANISH DECORATIONS
+   ======================== */
+.spanish-stripes {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 30px,
+    rgba(255, 255, 255, 0.02) 30px,
+    rgba(255, 255, 255, 0.02) 32px
+  );
+}
+
+.spanish-float {
+  position: absolute;
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.06);
+  animation: code-drift 10s ease-in-out infinite;
+  user-select: none;
+}
+
+.sp-1 { top: 15%; left: 8%; font-size: 5rem; }
+.sp-2 { top: 30%; right: 6%; font-size: 4rem; animation-delay: -2s; }
+.sp-3 { bottom: 30%; left: 5%; font-size: 3rem; animation-delay: -4s; }
+.sp-4 { top: 55%; right: 10%; font-size: 4rem; animation-delay: -6s; }
+.sp-5 { bottom: 15%; right: 15%; font-size: 3.5rem; animation-delay: -8s; }
+
+.spanish-glow {
+  position: absolute;
+  bottom: -10%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, transparent 60%);
+  border-radius: 50%;
+}
+
+.topic-subtitle-spanish {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--topic-text);
+  opacity: 0.5;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+/* ========================
+   SOROBAN DECORATIONS
+   ======================== */
+.soroban-rods {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.soroban-watermark {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  font-size: 18rem;
+  font-weight: 900;
+  color: rgba(254, 243, 199, 0.03);
+  line-height: 1;
+  user-select: none;
+}
+
+.topic-subtitle-soroban {
+  display: block;
+  font-size: 2rem;
+  color: var(--topic-text);
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+/* ========================
+   STORY WRITING DECORATIONS
+   ======================== */
+.story-lines {
+  position: absolute;
+  inset: 0;
+}
+
+.story-line {
+  position: absolute;
+  height: 2px;
+  background: rgba(237, 233, 254, 0.06);
+  border-radius: 2px;
+  animation: code-drift 12s ease-in-out infinite;
+}
+
+.story-sparkle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.story-quill {
+  position: absolute;
+  width: 100px;
+  right: 5%;
+  top: 10%;
+  transform: rotate(15deg);
+}
+
+.topic-story-writing .topic-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+/* ========================
+   TYPING DECORATIONS
+   ======================== */
+.floating-key {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid rgba(236, 253, 245, 0.08);
+  background: rgba(236, 253, 245, 0.03);
+  color: rgba(236, 253, 245, 0.1);
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+.typing-cursor {
+  position: absolute;
+  width: 2px;
+  height: 24px;
+  background: rgba(16, 185, 129, 0.3);
+  animation: cursor-blink 1s step-end infinite;
+}
+
+.cursor-1 { left: 20%; top: 65%; }
+.cursor-2 { right: 15%; top: 45%; animation-delay: 0.5s; }
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.speed-lines {
+  position: absolute;
+  inset: 0;
+}
+
+.speed-line {
+  position: absolute;
+  right: 5%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.08), transparent);
+  animation: speed-dash 3s ease-in-out infinite;
+}
+
+@keyframes speed-dash {
+  0% { transform: translateX(50px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(-50px); opacity: 0; }
+}
+
+.topic-typing .topic-title {
+  font-family: monospace;
+  letter-spacing: 2px;
+}
+
+/* ========================
+   RESPONSIVE
+   ======================== */
+@media (max-width: 768px) {
+  .topic-title {
+    font-size: 3rem !important;
+  }
+
+  .topic-description {
+    font-size: 1rem;
+  }
+
+  .topic-nav {
+    padding: 16px 20px;
+  }
+
+  .topic-content {
+    padding: 0 20px 60px;
+  }
+
+  .chess-board-pattern {
+    width: 300px;
+    height: 300px;
+  }
+
+  .knight-piece { width: 80px; }
+  .queen-piece { width: 70px; }
+
+  .hangul-watermark {
+    font-size: 12rem;
+  }
+
+  .hangul-3 {
+    font-size: 8rem;
+  }
+}
