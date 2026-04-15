@@ -775,6 +775,28 @@
 /* ========================
    SOROBAN DECORATIONS
    ======================== */
+.soroban-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.soroban-glow-1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(201, 148, 10, 0.06);
+  top: -10%;
+  right: -10%;
+}
+
+.soroban-glow-2 {
+  width: 350px;
+  height: 350px;
+  background: rgba(201, 148, 10, 0.04);
+  bottom: 10%;
+  left: -5%;
+}
+
 .soroban-rods {
   position: absolute;
   inset: 0;
@@ -784,42 +806,55 @@
 
 .soroban-watermark {
   position: absolute;
-  bottom: 5%;
-  right: 5%;
-  font-size: 18rem;
+  bottom: 3%;
+  right: 4%;
+  font-size: 22rem;
   font-weight: 900;
-  color: rgba(146, 64, 14, 0.04);
+  color: rgba(201, 148, 10, 0.03);
   line-height: 1;
   user-select: none;
 }
 
+.soroban-float {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: rgba(201, 148, 10, 0.07);
+  user-select: none;
+  animation: gentle-float 8s ease-in-out infinite;
+}
+
+.num-1 { top: 12%; left: 6%; font-size: 2rem; }
+.num-2 { top: 22%; left: 10%; font-size: 1.5rem; animation-delay: -2s; }
+.num-3 { top: 32%; left: 5%; font-size: 1.8rem; animation-delay: -4s; color: rgba(201, 148, 10, 0.1); }
+
 .topic-soroban .topic-title {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: 6px;
+  letter-spacing: 8px;
   text-transform: uppercase;
   font-size: 4.5rem;
-  color: #6b3a00;
+  color: #c9940a;
 }
 
 .topic-soroban .back-button {
-  color: #6b3a00;
-  background: rgba(146, 64, 14, 0.06);
+  color: rgba(201, 148, 10, 0.7);
+  background: rgba(201, 148, 10, 0.06);
 }
 
 .topic-soroban .video-container {
-  border-color: rgba(146, 64, 14, 0.12);
-  background: rgba(146, 64, 14, 0.04);
-  box-shadow: 0 20px 50px -15px rgba(146, 64, 14, 0.12);
+  border-color: rgba(201, 148, 10, 0.12);
+  background: rgba(201, 148, 10, 0.04);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.4);
 }
 
 .topic-soroban .video-placeholder {
-  color: #6b3a00;
+  color: rgba(201, 148, 10, 0.5);
 }
 
 .topic-soroban .topic-description {
-  color: #5c3200;
-  opacity: 0.7;
+  color: #f5e6c8;
+  opacity: 0.6;
 }
 
 /* ========================

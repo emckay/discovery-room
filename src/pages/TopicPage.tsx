@@ -263,28 +263,51 @@ function SpanishDecorations() {
 function SorobanDecorations() {
   return (
     <div className="decorations soroban-decorations">
-      {/* Vertical rod lines */}
-      <svg className="soroban-rods" viewBox="0 0 800 600" preserveAspectRatio="none">
-        {Array.from({ length: 13 }).map((_, i) => (
-          <g key={i}>
-            <line x1={60 + i * 56} y1="0" x2={60 + i * 56} y2="600" stroke="rgba(254,243,199,0.05)" strokeWidth="2" />
-            {/* Beads */}
-            {Array.from({ length: 5 }).map((_, j) => (
-              <circle
-                key={j}
-                cx={60 + i * 56}
-                cy={80 + j * 100 + ((i + j) % 3) * 20}
-                r="10"
-                fill="rgba(254,243,199,0.04)"
-              />
-            ))}
-          </g>
-        ))}
-        {/* Horizontal divider */}
-        <line x1="0" y1="200" x2="800" y2="200" stroke="rgba(254,243,199,0.06)" strokeWidth="3" />
+      {/* Warm gold glow */}
+      <div className="soroban-glow soroban-glow-1" />
+      <div className="soroban-glow soroban-glow-2" />
+
+      {/* Vertical rods with beads */}
+      <svg className="soroban-rods" viewBox="0 0 1000 700" preserveAspectRatio="none">
+        {/* Frame */}
+        <rect x="40" y="50" width="920" height="600" rx="8" fill="none" stroke="rgba(201,148,10,0.06)" strokeWidth="2" />
+        {/* Horizontal beam */}
+        <line x1="40" y1="220" x2="960" y2="220" stroke="rgba(201,148,10,0.1)" strokeWidth="3" />
+
+        {Array.from({ length: 13 }).map((_, i) => {
+          const x = 100 + i * 65;
+          const heavenY = 100 + ((i + 2) % 3) * 30;
+          return (
+            <g key={i}>
+              {/* Rod */}
+              <line x1={x} y1="50" x2={x} y2="650" stroke="rgba(201,148,10,0.04)" strokeWidth="1.5" />
+              {/* Heaven bead (1 per rod) */}
+              <ellipse cx={x} cy={heavenY} rx="14" ry="10"
+                fill="rgba(201,148,10,0.08)" stroke="rgba(201,148,10,0.12)" strokeWidth="1" />
+              {/* Earth beads (4 per rod) */}
+              {Array.from({ length: 4 }).map((_, j) => (
+                <ellipse
+                  key={j}
+                  cx={x}
+                  cy={280 + j * 70 + ((i + j) % 3) * 25}
+                  rx="14" ry="10"
+                  fill="rgba(201,148,10,0.06)"
+                  stroke="rgba(201,148,10,0.08)"
+                  strokeWidth="1"
+                />
+              ))}
+            </g>
+          );
+        })}
       </svg>
-      {/* Japanese character watermark */}
+
+      {/* Large kanji watermark */}
       <div className="soroban-watermark">算</div>
+
+      {/* Floating numbers */}
+      <div className="soroban-float num-1">1,247</div>
+      <div className="soroban-float num-2">× 86</div>
+      <div className="soroban-float num-3">= 107,242</div>
     </div>
   );
 }

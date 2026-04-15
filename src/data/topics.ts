@@ -93,9 +93,9 @@ export const topics: Topic[] = [
     tagline: "Calculate at lightning speed",
     description:
       "Want to do math faster than a calculator with a dead battery? The soroban trains your brain to see numbers like a movie.",
-    accentColor: "#92400e",
-    bgGradient: "linear-gradient(135deg, #faf6f0 0%, #f5ede0 50%, #ebe0cc 100%)",
-    textColor: "#3d2800",
+    accentColor: "#c9940a",
+    bgGradient: "linear-gradient(135deg, #1a1206 0%, #2a1f0e 40%, #1a140a 100%)",
+    textColor: "#f5e6c8",
     videoUrl: "",
   },
   {
