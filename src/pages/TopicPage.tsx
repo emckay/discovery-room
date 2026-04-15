@@ -445,6 +445,8 @@ export default function TopicPage() {
         navigate(`/topic/${prevTopic.slug}`);
       } else if (e.key === "ArrowRight") {
         navigate(`/topic/${nextTopic.slug}`);
+      } else if (e.key === "Escape") {
+        navigate("/");
       }
     },
     [navigate, prevTopic, nextTopic]
